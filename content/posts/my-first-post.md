@@ -1,6 +1,6 @@
 +++
 date = '2026-01-08T14:45:18Z'
-draft = true
+draft = false
 title = 'My First Post'
 +++
 
@@ -8,8 +8,5 @@ title = 'My First Post'
 
 This is **bold** text, and this is *emphasized* text.
 
-Visit the [Hugo](https://gohugo.io) website!
-Visit the [Hugo](https://gohugo.io) website!
-Visit the [Hugo](https://gohugo.io) website!
 Visit the [Hugo](https://gohugo.io) website!
 Visit the [Hugo](https://gohugo.io) website!
