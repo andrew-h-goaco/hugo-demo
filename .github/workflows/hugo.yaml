@@ -2,7 +2,8 @@ name: Hugo Deploy
 
 on:
   push:
-    branches: [main]  # deploy whenever you push to main
+    branches:
+      - main  # deploy whenever you push to main
 
 jobs:
   build-and-deploy:
@@ -13,25 +14,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: true      # fetch your theme submodule
+          submodules: true      # fetch the Hugo theme submodule
           fetch-depth: 1        # shallow clone for speed
 
-      # 2. Setup Hugo (prebuilt, extended if using SCSS/SASS)
+      # 2. Setup Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'  # or pin a specific Hugo version
-          extended: true           # only if your theme uses SCSS/SASS
+          extended: true           # required if using SCSS/SASS in theme
 
       # 3. Build the site
       - name: Build Hugo site
         run: hugo --minify
 
-      # 4. Deploy to GitHub Pages (automatic gh-pages creation)
+      # 4. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # automatically generated token
           publish_dir: ./public
 
 
